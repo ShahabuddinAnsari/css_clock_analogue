@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="wrap">
+            <span class="hour"></span>
+            <span class="minute"></span>
+            <span class="second"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+    <script>
+        function clock() {
+            const now = new Date();
+
+            const second = now.getSeconds();
+            document.querySelector('.second').style.transform = `rotate(${second *  6}deg)`;
+
+            const min = now.getMinutes();
+            document.querySelector('.minute').style.transform = `rotate(${min * 6}deg)`;
+
+            const hour = (now.getHours() + 11) % 12 + 1;
+            document.querySelector('.hour').style.transform = `rotate(${hour * 30}deg)`;
+        }
+        setInterval(clock, 1000);
+    </script>
+</body>
+
+</html>
